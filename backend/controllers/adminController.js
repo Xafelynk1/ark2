@@ -14,7 +14,8 @@ const transporter = nodemailer.createTransport({
 });
 
 // Default credentials
-const DEFAULT_USERNAME = 'xafelynkark2';
+const DEFAULT_USERNAME = 'xafelynkARK2';
+
 const DEFAULT_PASSWORD = 'Sam1$12580064';
 
 // Sign In Logic
