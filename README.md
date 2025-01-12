@@ -1,2 +1,2 @@
-# ARK2
+# ark2
 Ebooks, quiz and lots more
