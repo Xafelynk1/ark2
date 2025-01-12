@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Options - ARK1</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header>
+    <h1>Payment Options</h1>
+    <button onclick="goBack()">Back to Admin Panel</button>
+  </header>
+  <section>
+    <h2>Select Payment Method</h2>
+    <button onclick="payWithWallet()">Pay with Wallet</button>
+    <button onclick="proceedToBuy()">Proceed to Buy</button>
+  </section>
+
+  <script>
+    function goBack() {
+      window.location.href = 'admin.html'; // Link to the main admin panel
+    }
+
+    function payWithWallet() {
+      alert('Redirecting to wallet payment...');
+      // Logic to handle wallet payment
+    }
+
+    function proceedToBuy() {
+      window.location.href = 'payment.html'; // Redirect to the payment page
+    }
+  </script>
+</body>
+</html>

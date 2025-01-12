@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - ARK1</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header>
+    <h1>Payment Page</h1>
+    <button onclick="goBack()">Back to Payment Options</button>
+  </header>
+  <section>
+    <h2>Complete Your Payment</h2>
+    <form id="paymentForm">
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" required>
+      
+      <label for="payment-method">Payment Method:</label>
+      <select id="payment-method" required>
+        <option value="wallet">Wallet</option>
+        <option value="bank-transfer">Bank Transfer</option>
+      </select>
+      
+      <button type="submit">Submit Payment</button>
+    </form>
+    <h2>Edit Payment Options</h2>
+    <form id="editPaymentForm">
+      <label for="new-option">New Payment Option:</label>
+      <input type="text" id="new-option" required>
+      
+      <button type="submit">Add Payment Option</button>
+    </form>
+  </section>
+
+  <script>
+    function goBack() {
+      window.location.href = 'payment-options.html'; // Link to the payment options page
+    }
+
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const amount = document.getElementById('amount').value;
+      const paymentMethod = document.getElementById('payment-method').value;
+      // Logic to handle payment submission
+      alert(`Payment of ${amount} via ${paymentMethod} submitted.`);
+    });
+
+    document.getElementById('editPaymentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const newOption = document.getElementById('new-option').value;
+      // Logic to handle adding new payment option
+      alert(`New payment option "${newOption}" added.`);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Signup - ARK2</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="public/css/style-final-updated-v4.css"> <!-- Link to the updated CSS -->
+</head>
+<body>
+  <header>
+    <div class="website-name-container">
+        <h1 class="website-name">ARK2</h1> <!-- Styled website name -->
+    </div>
+    <h1>User Signup</h1>
+  </header>
+  <section>
+    <form id="userSignupForm"> 
+      <label for="username">Username:</label>
+      <input type="text" id="username" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+      
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" required> <!-- Added Confirm Password field -->
+      
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      
+      <label for="mobile">Mobile Number:</label>
+      <input type="tel" id="mobile" required>
+      
+      <label for="age">Age:</label>
+      <input type="number" id="age" required>
+      
+      <label>
+        <input type="checkbox" id="terms" required> I agree to the terms and conditions
+      </label>
+      
+      <button type="submit">Create Account</button>
+    </form>
+  </section>
+
+  <script>
+    function goBack() {
+      window.location.href = 'admin.html'; // Link to the main admin panel
+    }
+
+    document.getElementById('userSignupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const name = document.getElementById('name').value;
+      const surname = document.getElementById('surname').value;
+      const email = document.getElementById('email').value;
+      const mobile = document.getElementById('mobile').value;
+      const age = document.getElementById('age').value;
+      const terms = document.getElementById('terms').checked;
+      // Logic to handle user signup
+      if (terms) {
+        alert(`User account created for ${username}.`);
+      } else {
+        alert('You must agree to the terms and conditions.');
+      }
+    });
+  </script>
+</body>
+</html>
