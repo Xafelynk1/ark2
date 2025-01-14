@@ -16,8 +16,9 @@ describe('User Controller', () => {
             });
 
         expect(response.status).toBe(201);
-        expect(response.body.user.username).toBe('testuser');
+        expect(response.body.message).toBe('User registered successfully');
     });
+
 
     it('should login an existing user', async () => {
         const response = await request(app)

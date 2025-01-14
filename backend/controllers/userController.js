@@ -21,14 +21,14 @@ exports.registerUser = async (req, res) => {
         if (!username || !password) {
             return res.status(400).json({ message: 'Username and password are required' });
         }
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const user = { username, password: hashedPassword };
         const existingUser = db.get('users').find({ username }).value();
         if (existingUser) {
             return res.status(409).json({ message: 'Username already exists' });
         }
-        const existingData = db.get('users').value(); 
 
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = { username, password: hashedPassword };
+        const existingData = db.get('users').value(); 
 
         console.log('Existing data before registration:', existingData);
         const users = existingData || []; // Directly use existingData as an array

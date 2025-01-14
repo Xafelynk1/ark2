@@ -2,18 +2,6 @@
   "users": [
     {
       "username": "testuser",
-      "password": "$2b$10$6wgLYeShEy10xph..BYANe2bnXDClbqz3xsADO.o.GU50.20OMuWi"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$7wHeydOYe91q7S8Ey6oNauPoJ29xUbTkOO.eNozAJQgs/ujHS1pju"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$JXf9Il/8nDkj5EK59uky4uTzJekqcDLBxb0bCf.W2OwOuqaa8tukm"
-    },
-    {
-      "username": "testuser",
       "password": "$2b$10$/5CJ2fuUtReujUHZjcDxI.155l5ky.0DTrZBJzN8YfWeEKghF.jmG"
     },
     {
