@@ -23,7 +23,12 @@ exports.registerUser = async (req, res) => {
         }
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = { username, password: hashedPassword };
-        const existingData = db.get('users').value();
+        const existingUser = db.get('users').find({ username }).value();
+        if (existingUser) {
+            return res.status(409).json({ message: 'Username already exists' });
+        }
+        const existingData = db.get('users').value(); 
+
 
         console.log('Existing data before registration:', existingData);
         const users = existingData || []; // Directly use existingData as an array
@@ -66,8 +71,10 @@ exports.loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ id: user.username }, 'your_jwt_secret', { expiresIn: '1h' });
-        res.status(200).json({ token });
+        const token = jwt.sign({ id: user.username }, process.env.JWT_SECRET || 'default_secret', { expiresIn: '1h' });
+
+        res.status(200).json({ success: true, username: user.username, token });
+
     } catch (error) {
         console.error('Login error:', error);
         res.status(500).json({ message: 'Error logging in', error });

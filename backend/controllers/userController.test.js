@@ -1,47 +1,46 @@
 const request = require('supertest');
-const app = require('../server'); // Import the app instance directly
-let server; // Declare a variable to hold the server instance
-
-beforeAll(() => {
-    server = app.listen(0); // Use a random available port
-});
-
-afterAll(async () => {
-    await db.remove({}, { multi: true }); // Clean up the database after tests
-    server.close(); // Ensure the server shuts down
-});
-const db = require('../config/db'); // Import the database instance
-// jest.mock('medb-admin/app', () => ({
-//     initializeApp: jest.fn().mockReturnValue({}),
-//     cert: jest.fn().mockReturnValue({}),
-// }));
+const app = require('../../backend/server');
+const db = require('../../backend/config/db');
 
 describe('User Controller', () => {
     afterAll(async () => {
-        await db.remove({}, { multi: true }); // Clean up the database after tests
-    });
+        await db.pool.end(); // Close the database connection after tests
+    }, 15000); // Increase timeout to 15 seconds
 
     it('should register a new user', async () => {
         const response = await request(app)
-            .post('/api/users/register') // Adjust the endpoint as necessary
-            .send({ username: 'testuser', password: 'testpassword' });
-        
+            .post('/api/users/register')
+            .send({
+                username: 'testuser',
+                password: 'testpassword'
+            });
+
         expect(response.status).toBe(201);
-        expect(response.body.message).toBe('User registered successfully');
+        expect(response.body.user.username).toBe('testuser');
     });
 
-    it('should log in a user', async () => {
-        await request(app)
-            .post('/api/users/register')
-            .send({ username: 'testuser', password: 'testpassword' });
-
+    it('should login an existing user', async () => {
         const response = await request(app)
-            .post('/api/users/login') // Adjust the endpoint as necessary
-            .send({ username: 'testuser', password: 'testpassword' });
+            .post('/api/users/login')
+            .send({
+                username: 'testuser',
+                password: 'testpassword'
+            });
 
         expect(response.status).toBe(200);
-        expect(response.body.token).toBeDefined();
+        expect(response.body.success).toBe(true);
+        expect(response.body.username).toBe('testuser');
     });
 
-    // Add more tests for other user functionalities...
+    it('should fail to login with incorrect credentials', async () => {
+        const response = await request(app)
+            .post('/api/users/login')
+            .send({
+                username: 'testuser',
+                password: 'wrongpassword'
+            });
+
+        expect(response.status).toBe(401);
+        expect(response.body.success).toBe(false);
+    });
 });

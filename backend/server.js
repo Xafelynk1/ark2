@@ -1,4 +1,7 @@
+require('dotenv').config({ path: './backend/.env' }); // Load environment variables from .env file
+
 const express = require('express');
+
 const session = require('express-session');
 const sessionSecret = process.env.SESSION_SECRET || 'your_default_secret'; // Add session secret
 const cors = require('cors');
@@ -9,7 +12,7 @@ const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const db = require('./config/db'); // Import PostgreSQL connection
 
-dotenv.config();
+console.log('DATABASE_URL:', process.env.DATABASE_URL); // Log the DATABASE_URL for debugging
 
 const app = express();
 
@@ -35,7 +38,7 @@ db.pool.connect()
     .catch(err => console.error('Connection error', err.stack));
 
 if (process.env.NODE_ENV !== 'test') {
-    const PORT = process.env.PORT || 5035;
+    const PORT = process.env.PORT || 5035; // Set default port if not defined
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
 module.exports = app; // Export app for testing

@@ -4,6 +4,7 @@ require('dotenv').config();
 // Use Railway's PostgreSQL connection string
 const connectionString = process.env.DATABASE_URL;
 
+console.log('DATABASE_URL:', connectionString); // Log the DATABASE_URL for debugging
 const pool = new Pool({
     connectionString,
     ssl: {
