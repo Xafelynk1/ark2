@@ -2,42 +2,6 @@
   "users": [
     {
       "username": "testuser",
-      "password": "$2b$10$/5CJ2fuUtReujUHZjcDxI.155l5ky.0DTrZBJzN8YfWeEKghF.jmG"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$UKOLd0UK8ApWS7Nr8s2OwOlTpEQ60OR.0fuf1MEVdiQSf4GVbljcq"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$WV/Ol0c61yDsIbERyB.tu.iaWvef6A4y2x/xZ4P3ZrdpV65TxbMc6"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$OrId5SHFeVT6e8mxU2v4KuKSBHHbYuxaXBI.n/9/7quiUMFXyk6fy"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$uvBAtci/3e4ow0jw2dPBoubZtPTeG7K7.jGFtGhrZZMSVSEe5Zkkm"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$prkxNaA29lO8YtFPkY1mEuRCsRVuqxJl5kn233IidTW8XBRsY.zbO"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$Y1SVXlrUCe3EXaLWWvJSwutQdT1.Jk662IZexlDtwrJk8PmBPN3IC"
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$.DL55cQsm8AdSqu7I.c6GO2sZGm8DylG/fbRZe8PQrB7O0FUDLNN."
-    },
-    {
-      "username": "testuser",
-      "password": "$2b$10$IEOpb8egKP31cNgVy32Iz.z6KkQ/OhGzpzdSxbs0dh4m.XqYkbxUu"
-    },
-    {
-      "username": "testuser",
       "password": "$2b$10$l9k5m3/iabPxz2ZvtUKf1.52IavgS6mYw7KgoXMT0WUeH4LFQfAZG"
     },
     {

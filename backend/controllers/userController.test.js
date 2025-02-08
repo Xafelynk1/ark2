@@ -3,9 +3,15 @@ const app = require('../../backend/server');
 const db = require('../../backend/config/db');
 
 describe('User Controller', () => {
+    beforeEach(async () => {
+        await db.query('DELETE FROM users'); // Clear the users table before each test
+    });
+
+
     afterAll(async () => {
         await db.pool.end(); // Close the database connection after tests
     }, 15000); // Increase timeout to 15 seconds
+
 
     it('should register a new user', async () => {
         const response = await request(app)
